@@ -1,9 +1,24 @@
 ---
+auto_power: true
 schedule:
-  monday:
-  tuesday:
-  wednesday:
-  thursday:
-  friday:
-  saturday:
-  sunday:
+  MON:
+    power_on: '18:00'
+    power_off: '22:00'
+  TUE:
+    power_on: '18:00'
+    power_off: '22:00'
+  WED:
+    power_on: '18:00'
+    power_off: '22:00'
+  THU:
+    power_on: '18:00'
+    power_off: '22:00'
+  FRI:
+    power_on: '18:00'
+    power_off: '22:00'
+  SAT:
+    power_on: '09:00'
+    power_off: '23:59'
+  SUN:
+    power_on: '09:00'
+    power_off: '23:59'

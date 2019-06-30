@@ -18,6 +18,10 @@ bundle install
 foreman start
 ```
 
+## Configuration
+
+You can specify your custom power on/off schedule in the `schedule.yml` file and enable/disable the feature using the `auto_power` flag.
+
 ## Contributing
 
 1. Fork it!

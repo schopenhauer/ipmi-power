@@ -4,6 +4,7 @@ require 'sinatra/reloader' if development?
 require 'dotenv/load'
 require 'better_errors'
 require 'rubyipmi'
+require 'rufus-scheduler'
 
 set :public_folder, 'public'
 
@@ -20,8 +21,22 @@ configure do
   config_file 'schedule.yml'
 end
 
+if settings.auto_power == true
+  puts 'Using schedule to automatically power on/off.'
+  scheduler = Rufus::Scheduler.new
+  settings.schedule.map { |day, schedule|
+    scheduler.cron schedule[:power_on].split(':').reverse.join(' ') + ' * * ' + day do
+      puts 'Automatically switching on... ' + IPMI_NAME
+      ipmi.chassis.power.on
+    end
+    scheduler.cron schedule[:power_off].split(':').reverse.join(' ') + ' * * ' + day do
+      puts 'Automatically switching off... ' + IPMI_NAME
+      ipmi.chassis.power.off
+    end
+  }
+end
+
 get '/' do
-  # TODO: on/off according to schedule (e.g. settings.schedule)
   ipmi = Rubyipmi.connect(IPMI_USERNAME, IPMI_PASSWORD, IPMI_HOST)
   erb :landing, locals: {
     power_state: ipmi.chassis.power.on?
@@ -32,11 +47,13 @@ post '/' do
   ipmi = Rubyipmi.connect(IPMI_USERNAME, IPMI_PASSWORD, IPMI_HOST)
   case params[:power]
   when '0'
+    puts 'Manually switching off... ' + IPMI_NAME
     ipmi.chassis.power.off
   when '1'
+    puts 'Manually switching on... ' + IPMI_NAME
     ipmi.chassis.power.on
   else
-    p 'unknown error'
+    p 'Unknown error'
   end
   redirect '/'
 end

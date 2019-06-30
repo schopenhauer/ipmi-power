@@ -9,16 +9,25 @@ GEM
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     coderay (1.1.2)
+    concurrent-ruby (1.1.5)
     debug_inspector (0.0.3)
     dotenv (2.7.1)
     erubi (1.8.0)
+    et-orbi (1.2.1)
+      tzinfo
+    fugit (1.2.2)
+      et-orbi (~> 1.1, >= 1.1.8)
+      raabro (~> 1.1)
     multi_json (1.13.1)
     mustermann (1.0.3)
     puma (3.12.0)
+    raabro (1.1.6)
     rack (2.0.6)
     rack-protection (2.0.5)
       rack
     rubyipmi (0.10.0)
+    rufus-scheduler (3.6.0)
+      fugit (~> 1.1, >= 1.1.6)
     sinatra (2.0.5)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -32,6 +41,8 @@ GEM
       sinatra (= 2.0.5)
       tilt (>= 1.3, < 3)
     tilt (2.0.9)
+    tzinfo (2.0.0)
+      concurrent-ruby (~> 1.0)
 
 PLATFORMS
   ruby
@@ -42,6 +53,7 @@ DEPENDENCIES
   dotenv
   puma
   rubyipmi
+  rufus-scheduler
   sinatra
   sinatra-contrib
 
