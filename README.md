@@ -1,8 +1,15 @@
-# ipmi-boot
+# ipmi-power
 
-This is a frontend to power cycle remote machines using IPMI.
+This is a web frontend to power cycle a remote machine using IPMI. The tool has been tested with the [Supermicro A2SDi-4C-HLN4F](https://www.supermicro.com/products/motherboard/atom/A2SDi-4C-HLN4F.cfm) motherboard.
 
 ## Usage
+
+Set the following environment variables.
+
+- `IPMI_HOST` (IP address or hostname)
+- `IPMI_NAME` (server name)
+- `IPMI_USERNAME` (username)
+- `IPMI_PASSWORD` (password)
 
 Install the gems, run the app.
 
