@@ -1,6 +1,6 @@
 # ipmi-power
 
-This is a web frontend to power cycle a remote machine using [Intelligent Platform Management Interface](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface) (IPMI). The tool has been successfully tested with the [Supermicro A2SDi-4C-HLN4F](https://www.supermicro.com/products/motherboard/atom/A2SDi-4C-HLN4F.cfm) motherboard. It also includes a scheduler to automatically power on/off.
+This is a web frontend to power cycle a remote machine using [Intelligent Platform Management Interface](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface) (IPMI). The tool has been successfully tested with the [Supermicro A2SDi-4C-HLN4F](https://www.supermicro.com/products/motherboard/atom/A2SDi-4C-HLN4F.cfm) motherboard. It also includes a scheduler to automatically power the system on/off.
 
 ## Usage
 
@@ -20,7 +20,7 @@ foreman start
 
 ## Configuration
 
-You can specify your custom power on/off schedule in the `schedule.yml` file and enable/disable the feature using the `auto_power` flag.
+You can specify your custom power on/off schedule in the `schedule.yml` file and enable/disable the feature using the `auto_power` flag (disabled by default).
 
 ## Contributing
 

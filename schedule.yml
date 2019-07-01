@@ -1,5 +1,5 @@
 ---
-auto_power: true
+auto_power: false
 schedule:
   MON:
     power_on: '18:00'

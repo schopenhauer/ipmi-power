@@ -21,30 +21,36 @@ configure do
   config_file 'schedule.yml'
 end
 
+def connect
+  Rubyipmi.connect(IPMI_USERNAME, IPMI_PASSWORD, IPMI_HOST)
+end
+
 if settings.auto_power == true
   puts 'Using schedule to automatically power on/off.'
   scheduler = Rufus::Scheduler.new
   settings.schedule.map { |day, schedule|
     scheduler.cron schedule[:power_on].split(':').reverse.join(' ') + ' * * ' + day do
       puts 'Automatically switching on... ' + IPMI_NAME
+      ipmi = connect()
       ipmi.chassis.power.on
     end
     scheduler.cron schedule[:power_off].split(':').reverse.join(' ') + ' * * ' + day do
       puts 'Automatically switching off... ' + IPMI_NAME
+      ipmi = connect()
       ipmi.chassis.power.off
     end
   }
 end
 
 get '/' do
-  ipmi = Rubyipmi.connect(IPMI_USERNAME, IPMI_PASSWORD, IPMI_HOST)
+  ipmi = connect()
   erb :landing, locals: {
     power_state: ipmi.chassis.power.on?
   }
 end
 
 post '/' do
-  ipmi = Rubyipmi.connect(IPMI_USERNAME, IPMI_PASSWORD, IPMI_HOST)
+  ipmi = connect()
   case params[:power]
   when '0'
     puts 'Manually switching off... ' + IPMI_NAME
