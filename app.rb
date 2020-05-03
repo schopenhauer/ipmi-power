@@ -45,7 +45,7 @@ end
 get '/' do
   ipmi = connect()
   erb :landing, locals: {
-    power_state: ipmi.chassis.power.on?
+    powerState: ipmi.chassis.power.on?
   }
 end
 
@@ -59,7 +59,7 @@ post '/' do
     puts 'Manually switching on... ' + IPMI_NAME
     ipmi.chassis.power.on
   else
-    p 'Unknown error'
+    puts 'Unknown error'
   end
   redirect '/'
 end

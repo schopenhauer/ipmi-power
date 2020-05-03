@@ -7,11 +7,11 @@
 
   <h1><%= IPMI_NAME %> launcher</h1>
 
-  <p>The system is currently switched <%= power_state ? 'on' : 'off' %>.</p>
+  <p>The system is currently switched <%= powerState ? 'on' : 'off' %>.</p>
 
   <div class="input-group">
-    <button type="submit" name="power" value="<%= power_state ? '0' : '1' %>" onclick="return confirm(this.innerText+'?');" class="btn btn-<%= power_state ? 'danger' : 'success' %>">
-      Power <%= power_state ? 'off' : 'on' %>
+    <button type="submit" name="power" value="<%= powerState ? '0' : '1' %>" onclick="return confirm(this.innerText + '?');" class="btn btn-<%= powerState ? 'danger' : 'success' %>">
+      Power <%= powerState ? 'off' : 'on' %>
     </button>
   </div>
 
