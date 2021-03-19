@@ -1,15 +1,17 @@
 # ipmi-power
 
-This is a web frontend to power cycle a remote machine using [Intelligent Platform Management Interface](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface) (IPMI). The tool has been successfully tested with the [Supermicro A2SDi-4C-HLN4F](https://www.supermicro.com/products/motherboard/atom/A2SDi-4C-HLN4F.cfm) motherboard.
+This app helps you power cycle a remote machine using the [Intelligent Platform Management Interface](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface) (IPMI) protocol. The app has been successfully tested with the [Supermicro A2SDi-4C-HLN4F](https://www.supermicro.com/products/motherboard/atom/A2SDi-4C-HLN4F.cfm) motherboard. You may also configure a schedule to automatically power on/off your system.
 
-The app also includes a scheduler to automatically power the system on/off.
+## Requirements
+
+- Please install `freeipmi` or `ipmitool` on your system.
 
 ## Usage
 
 Set the following environment variables:
 
-- IP address or hostname: `IPMI_HOST`
 - Server name: `IPMI_NAME`
+- Hostname or IP address: `IPMI_HOST`
 - Username: `IPMI_USERNAME`
 - Password: `IPMI_PASSWORD`
 

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
-
-#ruby '2.7.1'
+ruby '3.0.0'
 
 group :sinatra do
   gem 'sinatra'
