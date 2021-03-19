@@ -20,12 +20,21 @@ GEM
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+<<<<<<< HEAD
     nio4r (2.5.7)
     puma (5.2.2)
       nio4r (~> 2.0)
     raabro (1.4.0)
     rack (2.2.3)
     rack-protection (2.1.0)
+=======
+    nio4r (2.5.2)
+    puma (4.3.5)
+      nio4r (~> 2.0)
+    raabro (1.1.6)
+    rack (2.2.3)
+    rack-protection (2.0.8.1)
+>>>>>>> 6677ec6d477349b49903edfdff27b6b885b9ed69
       rack
     ruby2_keywords (0.0.4)
     rubyipmi (0.10.0)
